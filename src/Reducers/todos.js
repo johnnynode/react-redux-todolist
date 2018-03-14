@@ -1,10 +1,4 @@
 import Constants from '../Constants/Constants';
-import TodoDispatcher from '../Dispatcher/TodoDispatcher';
-
-import {ReduceStore} from 'flux/utils';
-
-// 1. store 存储数据
-// 2. view 取数据来TodoStore取
 
 // toggle 特定一项
 let _toggleItemList = (todos, id) => {
@@ -51,30 +45,22 @@ let _editItemList = (todos, id, content) => {
   return newTodos;
 }
 
-class TodoStore extends ReduceStore {
-  // 相当于getTodo方法
-  getInitialState() {
-    return []; // 默认return值
+let todos = (state = [], action = {}) => {
+  // state 默认值为 [], action 默认值为 {}
+  switch(action.type) {
+    case Constants.TOGGLEITEM:
+      return _toggleItemList(state, action.id);
+    case Constants.DELITEM:
+      return _delItemList(state, action.id);
+    case Constants.CREATEITEM:
+      return _createItem(state, action.title);
+    case Constants.EDITITEM:
+      return _editItemList(state, action.id, action.title);
+    case Constants.LOADDATA:
+      return action.todos;
+    default:
+      return state;
   }
-  
-  // 这里就是一个todos
-  reduce(todos, action) {
-    switch(action.type) {
-      case Constants.TOGGLEITEM:
-        return _toggleItemList(todos, action.id);
-      case Constants.DELITEM:
-        return _delItemList(todos, action.id);
-      case Constants.CREATEITEM:
-        return _createItem(todos, action.title);
-      case Constants.EDITITEM:
-        return _editItemList(todos, action.id, action.title);
-      case Constants.LOADDATA:
-        return action.todos;
-      default:
-        return todos;
-    }
-  }
-
 }
 
-export default new TodoStore(TodoDispatcher);
+export default todos;

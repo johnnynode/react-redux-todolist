@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 
-import TodoAction from '../Action/TodoAction'
+import TodoAction from '../Action/TodoAction';
 
 import TodoHeaderContainer from "./TodoHeaderContainer";
 import TodoInputContainer from "./TodoInputContainer";
 import TodoListContainer from "./TodoListContainer";
+
+import { connect } from 'react-redux';
 
 class TodoApp extends Component {
   render() {
@@ -18,8 +20,13 @@ class TodoApp extends Component {
   }
 
   componentDidMount() {
-    TodoAction.loadData();
+    this.props.loadData();
   }
 }
 
-export default TodoApp;
+export default TodoApp = connect(
+  undefined,
+  {
+      loadData: TodoAction.loadData
+  }
+)(TodoApp);

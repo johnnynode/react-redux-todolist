@@ -1,8 +1,8 @@
+/*
 import React, {Component} from 'react';
 import TodoInput from "./TodoInput";
-
 import TodoAction from '../Action/TodoAction';
-import TodoStore from '../Store/TodoStore';
+import {connect} from 'react-redux';
 
 // trim 函数
 let trim = (str) => {
@@ -10,15 +10,12 @@ let trim = (str) => {
 };
 
 class TodoInputContainer extends Component {
-  constructor(props) {
-    super(props);
-    // 将数据存放在状态机中, 状态机改变, 自动刷新
-    this.state = {
-      todos: TodoStore.getState()
-    };
-  }
 
   render() {
+    const {
+      createItem
+    } = this.props;
+    
     return (
       <TodoInput 
         type='text' 
@@ -30,10 +27,7 @@ class TodoInputContainer extends Component {
           var _val = trim(val);
           // 正常新增
           if(e.keyCode === 13 && _val) {
-            // 设置状态机
-            this.setState({
-              todos: TodoAction.createItem(e.target.value)
-            });
+            createItem(e.target.value);
             e.target.value = ""; // 清空原值
           }
 
@@ -48,4 +42,46 @@ class TodoInputContainer extends Component {
 
 }
 
-export default TodoInputContainer;
+export default connect(
+  undefined,
+  {
+    createItem:TodoAction.createItem
+  }
+)(TodoInputContainer);
+
+*/
+
+import React, { Component } from 'react';
+import TodoAction from '../Action/TodoAction';
+import TodoInput from './TodoInput';
+import { connect } from 'react-redux';
+
+class TodoInputContainer extends Component {
+    render() {
+        const {
+            createItem
+        } = this.props;
+
+        return (
+            <TodoInput 
+                    style={{width: 200,height: 30}}
+                    placeholder="请输入待办内容..."
+                    type="text"  
+                    autoFocus={true} 
+                    onKeyDown={(e) => {
+                        if(e.keyCode === 13 && e.target.value !== "") {
+                            createItem(e.target.value)
+                            e.target.value = "";
+                        }
+                    }}
+                />
+        )
+    }
+}
+
+export default connect(
+    undefined,
+    {
+        createItem: TodoAction.createItem
+    }
+)(TodoInputContainer);;

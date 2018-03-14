@@ -1,41 +1,54 @@
 import Constants from '../Constants/Constants';
-import TodoDispatcher from '../Dispatcher/TodoDispatcher';
 
 const TodoAction = {
   toggleItem(id) {
-    TodoDispatcher.dispatch({
+    return {
       id,
       type:Constants.TOGGLEITEM
-    })
+    };
   },
   delItem(id) {
-    TodoDispatcher.dispatch({
+    return {
       id,
       type:Constants.DELITEM
-    })
+    };
   },
   createItem(title) {
-    TodoDispatcher.dispatch({
+    return {
       title,
       type:Constants.CREATEITEM
-    })
+    };
   },
   editItem(id, title) {
-    TodoDispatcher.dispatch({
+    return {
       id,
       title,
       type:Constants.EDITITEM
-    })
+    };
+  },
+  loadDatax() {
+    return (dispatch) => {
+          fetch('todos.json')
+          .then((data) => data.json())
+          .then((todos) => {
+            dispatch({
+              todos,
+              type:Constants.LOADDATA
+            });
+          });
+    }
   },
   loadData() {
-    fetch('todos.json')
-      .then((data) => data.json())
-      .then((todos) => {
-        TodoDispatcher.dispatch({
-          todos,
-          type:Constants.LOADDATA
-        });
-      });
+    return (dispatch) => {
+        fetch('todos.json')
+            .then((data) => data.json())
+            .then((todos)=>{
+                dispatch({
+                    type: Constants.LOADDATA,
+                    todos
+                });
+            });
+    }
   }
 };
 
