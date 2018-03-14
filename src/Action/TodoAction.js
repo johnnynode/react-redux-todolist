@@ -26,18 +26,6 @@ const TodoAction = {
       type:Constants.EDITITEM
     };
   },
-  loadDatax() {
-    return (dispatch) => {
-          fetch('todos.json')
-          .then((data) => data.json())
-          .then((todos) => {
-            dispatch({
-              todos,
-              type:Constants.LOADDATA
-            });
-          });
-    }
-  },
   loadData() {
     return (dispatch) => {
         fetch('todos.json')

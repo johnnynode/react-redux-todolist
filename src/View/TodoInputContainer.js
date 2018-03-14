@@ -1,4 +1,3 @@
-/*
 import React, {Component} from 'react';
 import TodoInput from "./TodoInput";
 import TodoAction from '../Action/TodoAction';
@@ -48,40 +47,3 @@ export default connect(
     createItem:TodoAction.createItem
   }
 )(TodoInputContainer);
-
-*/
-
-import React, { Component } from 'react';
-import TodoAction from '../Action/TodoAction';
-import TodoInput from './TodoInput';
-import { connect } from 'react-redux';
-
-class TodoInputContainer extends Component {
-    render() {
-        const {
-            createItem
-        } = this.props;
-
-        return (
-            <TodoInput 
-                    style={{width: 200,height: 30}}
-                    placeholder="请输入待办内容..."
-                    type="text"  
-                    autoFocus={true} 
-                    onKeyDown={(e) => {
-                        if(e.keyCode === 13 && e.target.value !== "") {
-                            createItem(e.target.value)
-                            e.target.value = "";
-                        }
-                    }}
-                />
-        )
-    }
-}
-
-export default connect(
-    undefined,
-    {
-        createItem: TodoAction.createItem
-    }
-)(TodoInputContainer);;
