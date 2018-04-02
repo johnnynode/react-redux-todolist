@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
 
-
 class TodoHeader extends Component {
   
   static get defaultProps() {
     return {
-      name: "章子怡",
-      todoCount: 98
+      name: "Johnny",
+      todoCount: 0
     }
   }
 

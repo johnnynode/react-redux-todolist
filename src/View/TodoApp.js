@@ -1,12 +1,9 @@
 import React, {Component} from 'react';
-
+import { connect } from 'react-redux';
 import TodoAction from '../Action/TodoAction';
-
 import TodoHeaderContainer from "./TodoHeaderContainer";
 import TodoInputContainer from "./TodoInputContainer";
 import TodoListContainer from "./TodoListContainer";
-
-import { connect } from 'react-redux';
 
 class TodoApp extends Component {
   render() {

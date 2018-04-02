@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import TodoList from "./TodoList";
 import TodoAction from '../Action/TodoAction';
-import {connect} from 'react-redux';
 
 class TodoListContainer extends Component {
   render() {
