@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import TodoInput from "./TodoInput";
-import TodoAction from '../Action/TodoAction';
 import {connect} from 'react-redux';
+import TodoAction from '../../Action/TodoAction';
+import TodoInput from "../Templates/TodoInput";
 
 // trim 函数
 let trim = (str) => {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import TodoHeader from './TodoHeader';
 import { connect } from 'react-redux';
+import TodoHeader from '../Templates/TodoHeader';
 
 class TodoHeaderContainer extends Component {
     render() {
