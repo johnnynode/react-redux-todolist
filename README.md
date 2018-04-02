@@ -1,6 +1,6 @@
-# react-redux-todomvc
+# react-redux-todolist
 
-react-redux-todomvc
+react-redux-todolist
 
 ---
 
