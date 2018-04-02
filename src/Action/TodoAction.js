@@ -28,7 +28,7 @@ const TodoAction = {
   },
   loadData() {
     return (dispatch) => {
-        fetch('todos.json')
+        fetch('books.json')
             .then((data) => data.json())
             .then((todos)=>{
                 dispatch({
