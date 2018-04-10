@@ -1,9 +1,9 @@
 const Constants = {
-  TOGGLEITEM: "toggleItem",
-  DELITEM: "delItem",
-  CREATEITEM: "createItem",
-  EDITITEM: "editItem",
-  LOADDATA: "loadData"
+  toggleItem: "toggleItem",
+  delItem: "delItem",
+  createItem: "createItem",
+  editItem: "editItem",
+  loadData: "loadData"
 }
 
 export default Constants;

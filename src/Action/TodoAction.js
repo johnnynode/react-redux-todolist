@@ -4,26 +4,26 @@ const TodoAction = {
   toggleItem(id) {
     return {
       id,
-      type:Constants.TOGGLEITEM
+      type:Constants.toggleItem
     };
   },
   delItem(id) {
     return {
       id,
-      type:Constants.DELITEM
+      type:Constants.delItem
     };
   },
   createItem(title) {
     return {
       title,
-      type:Constants.CREATEITEM
+      type:Constants.createItem
     };
   },
   editItem(id, title) {
     return {
       id,
       title,
-      type:Constants.EDITITEM
+      type:Constants.editItem
     };
   },
   loadData() {
@@ -32,7 +32,7 @@ const TodoAction = {
             .then((data) => data.json())
             .then((todos)=>{
                 dispatch({
-                    type: Constants.LOADDATA,
+                    type: Constants.loadData,
                     todos
                 });
             });

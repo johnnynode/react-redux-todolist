@@ -4,15 +4,15 @@ import Utils from '../Utils/Utils';
 let todos = (state = [], action = {}) => {
   // state 默认值为 [], action 默认值为 {}
   switch(action.type) {
-    case Constants.TOGGLEITEM:
+    case Constants.toggleItem:
       return Utils._toggleItemList(state, action.id);
-    case Constants.DELITEM:
+    case Constants.delItem:
       return Utils._delItemList(state, action.id);
-    case Constants.CREATEITEM:
+    case Constants.createItem:
       return Utils._createItem(state, action.title);
-    case Constants.EDITITEM:
+    case Constants.editItem:
       return Utils._editItemList(state, action.id, action.title);
-    case Constants.LOADDATA:
+    case Constants.loadData:
       return action.todos;
     default:
       return state;
