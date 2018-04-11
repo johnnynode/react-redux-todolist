@@ -19,7 +19,7 @@ class TodoInputContainer extends Component {
       <TodoInput 
         type='text' 
         style={{width:200,height:30}} 
-        placeholder="please input 2 ..." 
+        placeholder="please input here to add ..." 
         autoFocus={true} 
         onKeyDown={(e)=>{
           var val = e.target.value;

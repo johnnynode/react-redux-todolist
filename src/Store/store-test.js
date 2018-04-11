@@ -5,7 +5,7 @@ import rootReducer from '../Reducers';
 let composedReducer = combineReducers(rootReducer);
 
 // thunkMiddleware用于处理Action中传递的数据是字典还是函数(一般是异步操作)
-// 中间的参数：{dispatch, getState} 都是applyMiddleware的API内部处理的属于store的方法
+// 中间的参数：{dispatch, getState} 都是applyMiddleware的API内部处理的属于最终store的方法
 const thunkMiddleware = ({dispatch}) => {
   return (dispatch) => {
     // 这里的action就是从Action中return的字典或者是函数
