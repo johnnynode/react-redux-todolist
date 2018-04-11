@@ -4,7 +4,7 @@ import ListItem from './list-item';
 class List extends Component {
   static get defaultProps() {
     return {
-      todos:[],
+      books:[],
       toggleItemList:()=>{},
       delItemList:()=>{}
     }
@@ -12,7 +12,7 @@ class List extends Component {
 
   render() {
     const {
-      todos,
+      books,
       toggleItemList,
       delItemList,
       editItemList
@@ -21,13 +21,13 @@ class List extends Component {
       <div>
         <ul>
           {
-            todos.map((todo) => {
+            books.map((book) => {
               return (
-                <li key={todo.id}>
+                <li key={book.id}>
                   <ListItem 
-                    id={todo.id} 
-                    content={todo.content} 
-                    checked={todo.checked} 
+                    id={book.id} 
+                    content={book.content} 
+                    checked={book.checked} 
                     toggleItem={(id) => {
                       toggleItemList(id);
                     }}

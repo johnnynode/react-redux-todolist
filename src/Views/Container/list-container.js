@@ -6,14 +6,14 @@ import Action from '../../Action';
 class ListContainer extends Component {
   render() {
     const { 
-      todos,
+      books,
       toggleItem,
       delItem,
       editItem
     } = this.props;
     return (
       <List 
-          todos={todos} 
+          books={books} 
           toggleItemList={toggleItem}
           delItemList={delItem}
           editItemList={editItem}
@@ -27,7 +27,7 @@ class ListContainer extends Component {
 // 所以通过调用 state.todos 获取 todos这个reducer的数据 并且绑定到 this.props.todos中
 // 第二个参数是处理Action中的用到的方法绑定到this.props中
 export default connect(
-  (state) => ({todos: state.todos}),
+  (state) => ({books: state.books}),
   {
     toggleItem: Action.toggleItem,
     delItem: Action.delItem,

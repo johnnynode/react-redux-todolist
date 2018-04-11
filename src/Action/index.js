@@ -33,10 +33,10 @@ const Action = {
     return (dispatch) => {
         fetch('books.json')
             .then((data) => data.json())
-            .then((todos)=>{
+            .then((books)=>{
                 dispatch({
                     type: Constants.loadData,
-                    todos
+                    books
                 });
             });
     }

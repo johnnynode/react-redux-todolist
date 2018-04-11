@@ -4,14 +4,14 @@ import Header from '../Templates/header';
 
 class HeaderContainer extends Component {
     render() {
-        const { todos } = this.props;
-        let todoCount = todos.filter((todo) => !todo.checked).length;
+        const { books } = this.props;
+        let bookCount = books.filter((book) => !book.checked).length;
         return (
-            <Header name="Joh" todoCount={ todoCount }/>
+            <Header name="Joh" bookCount={ bookCount }/>
         )
     } 
 }
 
 export default connect(
-    (state) => ({todos: state.todos})
+    (state) => ({books: state.books})
 )(HeaderContainer);
