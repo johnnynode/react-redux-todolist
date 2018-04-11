@@ -14,7 +14,7 @@ class InputContainer extends Component {
     return (
       <Input 
         type='text' 
-        style={{width:200,height:30}} 
+        style={{width:200,height:30,outline:"none"}} 
         placeholder="please input here to add your book ..." 
         autoFocus={true} 
         onKeyDown={(e)=>{
