@@ -15,7 +15,7 @@ class InputContainer extends Component {
       <Input 
         type='text' 
         style={{width:200,height:30}} 
-        placeholder="please input here to add ..." 
+        placeholder="please input here to add your book ..." 
         autoFocus={true} 
         onKeyDown={(e)=>{
           var val = e.target.value;
