@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class TodoInput extends Component {
+class Input extends Component {
   static get defaultProps() {
     return {
       type: "text",
@@ -21,4 +21,4 @@ class TodoInput extends Component {
   }
 }
 
-export default TodoInput;
+export default Input;

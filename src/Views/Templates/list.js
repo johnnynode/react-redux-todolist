@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import TodoItem from './TodoItem';
+import ListItem from './list-item';
 
-class TodoList extends Component {
+class List extends Component {
   static get defaultProps() {
     return {
       todos:[],
@@ -24,7 +24,7 @@ class TodoList extends Component {
             todos.map((todo) => {
               return (
                 <li key={todo.id}>
-                  <TodoItem 
+                  <ListItem 
                     id={todo.id} 
                     content={todo.content} 
                     checked={todo.checked} 
@@ -48,4 +48,4 @@ class TodoList extends Component {
   }
 }
 
-export default TodoList;
+export default List;

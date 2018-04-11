@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class TodoHeader extends Component {
+class Header extends Component {
   
   static get defaultProps() {
     return {
@@ -20,4 +20,4 @@ class TodoHeader extends Component {
   }
 }
 
-export default TodoHeader;
+export default Header;

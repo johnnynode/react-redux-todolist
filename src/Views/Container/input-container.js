@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import TodoAction from '../../Action/TodoAction';
-import TodoInput from "../Templates/TodoInput";
+import Input from "../Templates/input";
 
 // trim 函数
 let trim = (str) => {
   return typeof str === 'string' ? str.replace(/^\s+|\s+$/g, "") : "";
 };
 
-class TodoInputContainer extends Component {
+class InputContainer extends Component {
 
   render() {
     const {
@@ -16,7 +16,7 @@ class TodoInputContainer extends Component {
     } = this.props;
     
     return (
-      <TodoInput 
+      <Input 
         type='text' 
         style={{width:200,height:30}} 
         placeholder="please input here to add ..." 
@@ -46,4 +46,4 @@ export default connect(
   {
     createItem:TodoAction.createItem
   }
-)(TodoInputContainer);
+)(InputContainer);

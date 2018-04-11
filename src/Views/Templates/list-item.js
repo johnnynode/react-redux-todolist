@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import TodoInput from './TodoInput';
+import Input from './input';
 
-class TodoItem extends Component {
+class ListItem extends Component {
   constructor(props) {
     super(props);
     // 设置状态机
@@ -78,7 +78,7 @@ class TodoItem extends Component {
             toggleItem(id)
           }} 
         />
-        <TodoInput 
+        <Input 
           autoFocus={true}
           style={{width:100,height:30}}
           defaultValue={content}
@@ -112,4 +112,4 @@ class TodoItem extends Component {
   }
 }
 
-export default TodoItem;
+export default ListItem;

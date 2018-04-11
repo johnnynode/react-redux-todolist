@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import TodoList from "../Templates/TodoList";
+import List from "../Templates/list";
 import TodoAction from '../../Action/TodoAction';
 
 class TodoListContainer extends Component {
@@ -12,7 +12,7 @@ class TodoListContainer extends Component {
       editItem
     } = this.props;
     return (
-      <TodoList 
+      <List 
           todos={todos} 
           toggleItemList={toggleItem}
           delItemList={delItem}

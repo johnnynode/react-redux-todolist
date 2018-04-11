@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import TodoHeader from '../Templates/TodoHeader';
+import Header from '../Templates/header';
 
-class TodoHeaderContainer extends Component {
+class HeaderContainer extends Component {
     render() {
         const { todos } = this.props;
         let todoCount = todos.filter((todo) => !todo.checked).length;
         return (
-            <TodoHeader name="Joh" todoCount={ todoCount }/>
+            <Header name="Joh" todoCount={ todoCount }/>
         )
     } 
 }
 
 export default connect(
     (state) => ({todos: state.todos})
-)(TodoHeaderContainer);
+)(HeaderContainer);
