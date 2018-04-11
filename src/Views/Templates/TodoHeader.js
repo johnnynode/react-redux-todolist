@@ -13,8 +13,8 @@ class TodoHeader extends Component {
     const {name, todoCount} = this.props;
     return (
       <div>
-        <h1> My todo list</h1>
-        <h1> Hello {name} you have {todoCount} items todo left</h1>
+        <h1> My book list</h1>
+        <h3> Hello {name} , you have {todoCount} {todoCount > 1 ? "books" : "book"} left to read!</h3>
       </div>
     )
   }
