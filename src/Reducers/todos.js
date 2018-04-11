@@ -1,5 +1,5 @@
-import Constants from '../Constants/Constants';
-import Utils from '../Utils/Utils';
+import Constants from '../Constants';
+import Utils from '../Utils';
 
 // state 默认值为 [], action 默认值为 {}
 let todos = (state = [], action = {}) => {

@@ -1,17 +1,17 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import TodoAction from '../Action/TodoAction';
-import TodoHeaderContainer from "../Views/Container/TodoHeaderContainer";
-import TodoInputContainer from "../Views/Container/TodoInputContainer";
-import TodoListContainer from "../Views/Container/TodoListContainer";
+import Action from '../Action';
+import HeaderContainer from "../Views/Container/header-container";
+import InputContainer from "../Views/Container/input-container";
+import ListContainer from "../Views/Container/list-container";
 
 class App extends Component {
   render() {
     return (
       <div>
-        <TodoHeaderContainer />
-        <TodoInputContainer />
-        <TodoListContainer />
+        <HeaderContainer />
+        <InputContainer />
+        <ListContainer />
       </div>
     )
   }
@@ -24,6 +24,6 @@ class App extends Component {
 export default App = connect(
   undefined,
   {
-      loadData: TodoAction.loadData
+      loadData: Action.loadData
   }
 )(App);

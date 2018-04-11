@@ -1,6 +1,6 @@
-import Constants from '../Constants/Constants';
+import Constants from '../Constants';
 
-const TodoAction = {
+const Action = {
   toggleItem(id) {
     return {
       id,
@@ -43,4 +43,4 @@ const TodoAction = {
   }
 };
 
-export default TodoAction;
+export default Action;

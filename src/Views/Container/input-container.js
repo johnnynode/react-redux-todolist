@@ -1,12 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import TodoAction from '../../Action/TodoAction';
+import Utils from '../../Utils';
+import Action from '../../Action';
 import Input from "../Templates/input";
-
-// trim 函数
-let trim = (str) => {
-  return typeof str === 'string' ? str.replace(/^\s+|\s+$/g, "") : "";
-};
 
 class InputContainer extends Component {
 
@@ -23,7 +19,7 @@ class InputContainer extends Component {
         autoFocus={true} 
         onKeyDown={(e)=>{
           var val = e.target.value;
-          var _val = trim(val);
+          var _val = Utils.trim(val);
           // 正常新增
           if(e.keyCode === 13 && _val) {
             createItem(e.target.value);
@@ -44,6 +40,6 @@ class InputContainer extends Component {
 export default connect(
   undefined,
   {
-    createItem:TodoAction.createItem
+    createItem:Action.createItem
   }
 )(InputContainer);

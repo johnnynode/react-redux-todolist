@@ -1,3 +1,7 @@
+/*
+  本文件作为Store手写版的实现原理
+*/
+
 import {combineReducers, createStore, applyMiddleware} from 'redux';
 import rootReducer from '../Reducers';
 

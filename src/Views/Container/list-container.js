@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import List from "../Templates/list";
-import TodoAction from '../../Action/TodoAction';
+import Action from '../../Action';
 
-class TodoListContainer extends Component {
+class ListContainer extends Component {
   render() {
     const { 
       todos,
@@ -29,8 +29,8 @@ class TodoListContainer extends Component {
 export default connect(
   (state) => ({todos: state.todos}),
   {
-    toggleItem: TodoAction.toggleItem,
-    delItem: TodoAction.delItem,
-    editItem: TodoAction.editItem
+    toggleItem: Action.toggleItem,
+    delItem: Action.delItem,
+    editItem: Action.editItem
   }
-)(TodoListContainer)
+)(ListContainer)

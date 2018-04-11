@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Utils from '../../Utils';
 import Input from './input';
 
 class ListItem extends Component {
@@ -6,13 +7,13 @@ class ListItem extends Component {
     super(props);
     // 设置状态机
     this.state = {
-      isEditable: false
+      isEditing: false
     }
   }
 
   static get defaultProps() {
     return {
-      content: "重新定义公司",
+      content: "default book",
       checked: true,
       id: 0,
       toggleItem: () => {},
@@ -21,45 +22,13 @@ class ListItem extends Component {
     }
   }
 
-  changeEditableValue = () => {
+  changeEditState = () => {
     this.setState({
-      isEditable: !this.state.isEditable
+      isEditing: !this.state.isEditing
     });
   }
 
-  // 只读模式
-  readOnly = () => {
-    const {
-      content,
-      checked,
-      id,
-      toggleItem,
-      delItem
-    } = this.props;
-    return (
-      <div>
-        <input 
-          type="checkbox" 
-          checked={checked} 
-          id={id} 
-          onChange={()=>{
-            toggleItem(id)
-          }} 
-        />
-        <span onDoubleClick={()=>{
-          this.changeEditableValue();
-        }}>{content}</span>
-        <button onClick={
-          ()=>{
-            delItem(id);
-          }
-        }>×</button>
-      </div>
-    )
-  }
-
-  // 编辑模式
-  editMode = () => {
+  render() {
     const {
       content,
       checked,
@@ -68,47 +37,71 @@ class ListItem extends Component {
       delItem,
       editItem
     } = this.props;
+
+    let bookHtml,
+      isEditing = this.state.isEditing;
+    
+    if(isEditing) {
+      bookHtml = <Input 
+        autoFocus={true}
+        defaultValue={content}
+        style={{width:200,height:30,outline:"none"}}
+        onBlur={
+          (e)=>{
+            let val = Utils.trim(e.target.value);
+            // 空值还原
+            if(!val) {
+              return this.changeEditState();
+            }
+            editItem(id,val);
+            this.changeEditState();
+          }
+        }
+        onKeyUp={
+          (e) => {
+            let val = Utils.trim(e.target.value);
+            if(val && e.keyCode === 13) {
+              editItem(id,val);
+              this.changeEditState();
+            }
+            if(!val && e.keyCode === 13) {
+              this.changeEditState();
+            }
+          }
+        }
+      />
+    } else {
+      bookHtml = 
+        <span
+          onDoubleClick={
+            ()=>{
+              this.changeEditState();
+            }
+          }
+        >{content}</span>
+    }
+
     return (
       <div>
-        <input 
-          type="checkbox" 
-          checked={checked} 
-          id={id} 
-          onChange={()=>{
-            toggleItem(id)
-          }} 
-        />
         <Input 
-          autoFocus={true}
-          style={{width:100,height:30}}
-          defaultValue={content}
-          onBlur={
-            (e)=>{
-              editItem(id, e.target.value);
-              this.changeEditableValue();
-            }
-          }
-          onKeyDown={
-            (e)=> {
-              var val = e.target.value; // 此处没有进行trim处理
-              if(e.keyCode === 13 &&  val!== "") {
-                editItem(id, val);
-                this.changeEditableValue();
-              }
+          id={id}
+          type="checkbox"
+          style={{width:15,height:15}}
+          checked={checked}
+          onChange={
+            ()=> {
+              toggleItem(id);
             }
           }
         />
+        {bookHtml}
         <button onClick={
           ()=>{
             delItem(id);
           }
-        }>×</button>
+        }>x</button>
       </div>
     )
-  }
-
-  render() {
-    return this.state.isEditable ? this.editMode() : this.readOnly();
   }
 }
 
