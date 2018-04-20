@@ -14,6 +14,8 @@ let books = (state = [], action = {}) => {
     case Constants.editItem:
       return Utils.editItemList(state, action.id, action.title);
     case Constants.loadData:
+      console.log('reducer load data');
+      console.log(action.books);
       return action.books;
     default:
       return state;

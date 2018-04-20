@@ -6,6 +6,8 @@ class HeaderContainer extends Component {
     render() {
         const { books } = this.props;
         let bookCount = books.filter((book) => !book.checked).length;
+        console.log('this.props');
+        console.log(this.props);
         return (
             <Header name="Joh" bookCount={ bookCount }/>
         )
