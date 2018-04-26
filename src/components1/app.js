@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import Action from '../Action';
-import HeaderContainer from "../Views/Container/header-container";
-import InputContainer from "../Views/Container/input-container";
-import ListContainer from "../Views/Container/list-container";
+import Action from '../action';
+import HeaderContainer from "../views/container/header-container";
+import InputContainer from "../views/container/input-container";
+import ListContainer from "../views/container/list-container";
 
 class App extends Component {
   render() {

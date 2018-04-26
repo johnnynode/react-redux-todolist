@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import Utils from '../../Utils';
-import Action from '../../Action';
-import Input from "../Templates/input";
+import Utils from '../../utils';
+import Action from '../../action';
+import Input from "../templates/input";
 
 class InputContainer extends Component {
 

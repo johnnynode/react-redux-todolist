@@ -3,7 +3,7 @@
 */
 
 import {combineReducers, createStore, applyMiddleware} from 'redux';
-import rootReducer from '../Reducers';
+import rootReducer from '../reducers';
 
 // 通过redux中的combineReducers的API, 将所有的reducers组合成一个组合的reducer
 let composedReducer = combineReducers(rootReducer);

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Header from '../Templates/header';
+import Header from '../templates/header';
 
 class HeaderContainer extends Component {
     render() {

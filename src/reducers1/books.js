@@ -1,5 +1,5 @@
-import Constants from '../Constants';
-import Utils from '../Utils';
+import Constants from '../constants';
+import Utils from '../utils';
 
 // state 默认值为 [], action 默认值为 {}
 let books = (state = [], action = {}) => {

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import List from "../Templates/list";
-import Action from '../../Action';
+import List from "../templates/list";
+import Action from '../../action';
 
 class ListContainer extends Component {
   render() {
