@@ -1,29 +1,31 @@
 import Constants from '../constants';
 
+const Types = Constants.actionTypes;
+
 const Action = {
   toggleItem(id) {
     return {
       id,
-      type:Constants.toggleItem
+      type:Types.toggleItem
     };
   },
   delItem(id) {
     return {
       id,
-      type:Constants.delItem
+      type:Types.delItem
     };
   },
   createItem(title) {
     return {
       title,
-      type:Constants.createItem
+      type:Types.createItem
     };
   },
   editItem(id, title) {
     return {
       id,
       title,
-      type:Constants.editItem
+      type:Types.editItem
     };
   },
   loadData() {
@@ -35,7 +37,7 @@ const Action = {
             .then((data) => data.json())
             .then((books)=>{
                 dispatch({
-                    type: Constants.loadData,
+                    type: Types.loadData,
                     books
                 });
             });

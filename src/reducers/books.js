@@ -1,21 +1,21 @@
 import Constants from '../constants';
 import Utils from '../utils';
 
+const Types = Constants.actionTypes;
+
 // state 默认值为 [], action 默认值为 {}
 let books = (state = [], action = {}) => {
   // 通过switch来做判断
   switch(action.type) {
-    case Constants.toggleItem:
+    case Types.toggleItem:
       return Utils.toggleItemList(state, action.id);
-    case Constants.delItem:
+    case Types.delItem:
       return Utils.delItemList(state, action.id);
-    case Constants.createItem:
+    case Types.createItem:
       return Utils.createItem(state, action.title);
-    case Constants.editItem:
+    case Types.editItem:
       return Utils.editItemList(state, action.id, action.title);
-    case Constants.loadData:
-      console.log('reducer load data');
-      console.log(action.books);
+    case Types.loadData:
       return action.books;
     default:
       return state;
