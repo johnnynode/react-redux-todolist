@@ -2,7 +2,7 @@ import Constants from '../constants';
 
 const Types = Constants.actionTypes;
 
-const Action = {
+export default {
   toggleItem(id) {
     return {
       id,
@@ -44,5 +44,3 @@ const Action = {
     }
   }
 };
-
-export default Action;
