@@ -1,6 +1,6 @@
 # react-redux-todolist
 
-react-redux-todolist
+Just a small demo for react-redux usage
 
 ---
 
